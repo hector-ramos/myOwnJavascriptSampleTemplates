@@ -28,26 +28,40 @@
         document.title = 'My First Javascript Site';
         var sectionL = document.createElement('section');
         var sectionR = document.createElement('section');
+        var iframe = document.createElement('iframe');
+        sectionR.appendChild(iframe);
+        iframe.width = '560';
+        iframe.height = '315';
+        iframe.src = "http://www.youtube.com/embed/LuDN2bCIyus";
+
         sectionL.className = 'left';
         sectionR.className = 'right';
         var nav = document.createElement('nav');
         var header = document.createElement('header');
+        var img = document.createElement('img');
+        header.appendChild(img);
+        img.src = 'http://img.ninthdesign.com/ui/logo.png';
+        img.className = 'logo'
         document.body.insertBefore(sectionR, document.body.firstChild);
         document.body.insertBefore(sectionL, document.body.firstChild);
         document.body.insertBefore(nav, document.body.firstChild);
         document.body.insertBefore(header, document.body.firstChild);
-        header.className = 'logo';
-        var ul = document.createElement('ul');
-        nav.appendChild(ul);
+        var ulNav = document.createElement('ul');
+        ulNav.className = 'navigation';
+        nav.appendChild(ulNav);
 
         //styling for header tag
         header.style.width = '100%';
         header.style.height = '100px';
-        header.style.backgroundColor = 'red';
+        header.style.backgroundColor = '#4EAF21';
         header.style.marginTop = '5px';
         header.style.borderRadius = '10px';
 
+        //styling for img
+        img.style.margin = "10px 10px";
+
         //styling for body tag
+        document.body.style.backgroundColor = '#33363b';
         document.body.style.width = "900px";
         document.body.style.height = "800px";
         document.body.style.margin = "auto";
@@ -55,22 +69,22 @@
         //styling for nav tag
         nav.style.marginTop = '5px';
         nav.style.borderRadius = '10px';
-        nav.style.backgroundColor = "green";
+        nav.style.backgroundColor = "#d54e21";
         nav.style.width = "100%";
         nav.style.height = "40px";
 
         //styling
-        ul.style.listStyleType = "none";
-        ul.style.textAlign = "center";
-        ul.style.padding = "10px";
-        ul.style.marginTop = "0";
+        ulNav.style.listStyleType = "none";
+        ulNav.style.textAlign = "center";
+        ulNav.style.padding = "8px";
+        ulNav.style.marginTop = "0";
 
          //styling for section tag
         sectionL.style.borderRadius = '10px';
         sectionL.style.display = 'inline-block';
         sectionL.style.width = '29.4%';
         sectionL.style.height = '400px';
-        sectionL.style.backgroundColor = 'blue';
+        sectionL.style.backgroundColor = '#4ca6cf';
         sectionL.style.marginRight = '5px';
         sectionL.style.marginTop = '5px';
 
@@ -79,11 +93,19 @@
         sectionR.style.display = 'inline-block';
         sectionR.style.width = '70%';
         sectionR.style.height = '400px';
-        sectionR.style.backgroundColor = 'pink';
+        sectionR.style.backgroundColor = 'transparent';
+
+
+        //styling for iframe
+        iframe.style.position = 'absolute';
+        iframe.style.top = '21%';
+        iframe.style.left = '41.3%';
+
 
 
 
         var navItem = ['Home', 'Photos', 'Media', 'Contact Us', 'About Us', 'FAQs', 'Privacy and Policy', 'Terms of Use'];
+        
 
         var toSlug = function(str){
             var slug;
@@ -98,7 +120,7 @@
             li.style.display = "inline-block";
             li.style.padding = "2px 12px";
             var a = document.createElement('a');
-            ul.appendChild(li);
+            ulNav.appendChild(li);
             a.textContent = navItem[i];
             a.href = '#' + toSlug(navItem[i]);
             li.appendChild(a);
@@ -130,6 +152,8 @@
             a.style.fontSize = "1.3em";
         }
 
+
+
         //Event Delegation
 
         // ul.addEventListener('click', function(e){
@@ -158,21 +182,53 @@
         var footerP = document.createElement('p');
         footer.className = 'my-footer';
         document.body.insertBefore(footer, document.body.lastChild);
+        var ulFoot = document.createElement('ul');
+        ulFoot.style.listStyleType = 'none';
+        ulFoot.style.margin = '0';
+        ulFoot.style.padding = '10px';
+        footer.appendChild(ulFoot);
         footer.appendChild(footerP);
-        footerP.textContent ='Copyright © 2013 By: Hector M. Ramos, Jr.';
+        footerP.textContent ='© 2013 By: Hector M. Ramos, Jr.';
+
+        var imageList = {
+            images: [
+                {
+                    source: 'images/html5.png'
+                },
+                {
+                    source: 'images/css3.png'
+                },
+                {
+                    source: 'images/js.png'
+                },
+                {
+                    source: 'images/rwd.png'
+                }
+            ]
+        };
+
+        for (var i = 0; i < imageList.images.length; i++){
+            var li = document.createElement('li');
+            li.style.display = 'inline-block';
+            var img = document.createElement('img');
+            img.className = 'footer-images';
+            img.src = imageList.images[i].source;
+            li.appendChild(img);
+            ulFoot.appendChild(li);
+        }
         
         //styling for footer
         footer.style.width = '100%';
         footer.style.height = '100px';
         footer.style.backgroundColor = 'black';
         footer.style.borderRadius = '10px';
-        footer.style.marginTop = '-10px';
+        footer.style.marginTop = '5px';
 
         //styling for footerP
         footerP.style.color = 'white';
         footerP.style.fontSize = '0.9em';
         footerP.style.textAlign = 'center';
-        footerP.style.paddingTop = '80px';
+        footerP.style.marginTop = '5px';
     </script>
 </body>
 </html>
