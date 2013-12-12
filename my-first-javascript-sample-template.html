@@ -61,6 +61,7 @@
 
         //styling
         ul.style.listStyleType = "none";
+        ul.style.textAlign = "center";
         ul.style.padding = "10px";
         ul.style.marginTop = "0";
 
@@ -82,7 +83,7 @@
 
 
 
-        var navItem = ['Home', 'Gallery', 'Contact Us', 'About Us'];
+        var navItem = ['Home', 'Photos', 'Media', 'Contact Us', 'About Us', 'FAQs', 'Privacy and Policy', 'Terms of Use'];
 
         var toSlug = function(str){
             var slug;
@@ -95,7 +96,7 @@
             var li = document.createElement('li');
             //styling
             li.style.display = "inline-block";
-            li.style.padding = "0 10px";
+            li.style.padding = "2px 12px";
             var a = document.createElement('a');
             ul.appendChild(li);
             a.textContent = navItem[i];
@@ -114,20 +115,19 @@
                 if (target.nodeName.toLowerCase() === 'a'){
                     target.style.color = "yellow";
                 }
-                
             });
 
             a.addEventListener('mouseout', function(e){
                 var target = e.target;
                 if (target.nodeName.toLowerCase() === 'a'){
                     target.style.color = "white";
-                }   
+                }
             });
 
             //styling
             a.style.color = "white";
             a.style.textDecoration = "none";
-            a.style.fontSize = "1.5em";
+            a.style.fontSize = "1.3em";
         }
 
         //Event Delegation
