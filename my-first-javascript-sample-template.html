@@ -101,25 +101,58 @@
             a.textContent = navItem[i];
             a.href = '#' + toSlug(navItem[i]);
             li.appendChild(a);
+
+            //addEventListner
+            a.addEventListener('click', function(e){
+                var target = e.target;
+                document.title = target.textContent;
+            });
+
+            //addEventListener for hover
+            a.addEventListener('mouseover', function(e){
+                var target = e.target;
+                if (target.nodeName.toLowerCase() === 'a'){
+                    target.style.color = "yellow";
+                }
+                
+            });
+
+            a.addEventListener('mouseout', function(e){
+                var target = e.target;
+                if (target.nodeName.toLowerCase() === 'a'){
+                    target.style.color = "white";
+                }   
+            });
+
             //styling
             a.style.color = "white";
             a.style.textDecoration = "none";
             a.style.fontSize = "1.5em";
         }
 
-        ul.addEventListener('mouseover', function(evt) {
-            var target = evt.target;
-            if (target.nodeName.toLowerCase() === 'a') {
-                target.style.color = "yellow";
-            }
-        }, false);
+        //Event Delegation
 
-        ul.addEventListener('mouseout', function(evt) {
-            var target = evt.target;
-            if (target.nodeName.toLowerCase() === 'a') {
-                target.style.color = "white";
-            }
-        }, false);
+        // ul.addEventListener('click', function(e){
+        //     var target = e.target;
+        //     if (target.nodeName.toLowerCase() === 'a'){
+        //         document.title = target.textContent;
+        //     }
+        // });
+
+        //Event Delegation for hover
+        // ul.addEventListener('mouseover', function(evt) {
+        //     var target = evt.target;
+        //     if (target.nodeName.toLowerCase() === 'a') {
+        //         target.style.color = "yellow";
+        //     }
+        // }, false);
+
+        // ul.addEventListener('mouseout', function(evt) {
+        //     var target = evt.target;
+        //     if (target.nodeName.toLowerCase() === 'a') {
+        //         target.style.color = "white";
+        //     }
+        // }, false);
 
         var footer = document.createElement('footer');
         var footerP = document.createElement('p');
@@ -140,8 +173,6 @@
         footerP.style.fontSize = '0.9em';
         footerP.style.textAlign = 'center';
         footerP.style.paddingTop = '80px';
-
-
     </script>
 </body>
 </html>
