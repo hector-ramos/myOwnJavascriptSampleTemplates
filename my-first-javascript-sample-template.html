@@ -61,7 +61,6 @@
         ulNav.className = 'navigation';
         nav.appendChild(ulNav);
 
-        // var formLabel = ['FirstName:', 'MiddleName:', 'LastName:', 'Email:', 'Comments:'];
         var formElements = [
             {
                 label: 'First Name:',
@@ -86,29 +85,6 @@
             }
             
         ];
-
-
-        for (var i = 0; i < formElements.length; i++ ){
-            var li = document.createElement('li');
-            li.style.marginBottom = '5px'
-            var label = document.createElement('label');
-            label.textContent =formElements[i].label;
-            li.appendChild(label);
-
-            if(formElements[i].type === 'textarea'){
-                var textarea = document.createElement('textarea');
-                li.appendChild(textarea);
-                textarea.value = formElements[i].value;
-                li.style.marginTop = ''
-            } else {
-                var input = document.createElement('input');
-                input.type = formElements[i].type;
-                input.value = formElements[i].value
-                li.appendChild(input);
-            }
-            
-            ol.appendChild(li);
-        }
 
         // for (var i = 0; i < formElements.length; i++ ){
         //     var li = document.createElement('li');
@@ -179,9 +155,7 @@
         sectionR.style.height = '400px';
         sectionR.style.backgroundColor = '#fff';
 
-
         //styling for iframe
-
         iframe.style.position = 'absolute';
         iframe.style.top = '10%';
         iframe.style.left = '5.5%';
@@ -209,6 +183,29 @@
 
             return slug;
         };
+
+        for (var i = 0; i < formElements.length; i++ ){
+            var li = document.createElement('li');
+            var label = document.createElement('label');
+            label.textContent =formElements[i].label;
+            li.appendChild(label);
+
+            if(formElements[i].type === 'textarea'){
+                var textarea = document.createElement('textarea');
+                li.appendChild(textarea);
+                textarea.value = formElements[i].value;
+                li.style.marginTop = ''
+            } else {
+                var input = document.createElement('input');
+                input.type = formElements[i].type;
+                input.value = formElements[i].value
+                li.appendChild(input);
+            }
+            
+            ol.appendChild(li);
+        }
+
+
         for(var i = 0; i < navItem.length; i++){
             var li = document.createElement('li');
             //styling
@@ -229,16 +226,12 @@
             //addEventListener for hover
             a.addEventListener('mouseover', function(e){
                 var target = e.target;
-                if (target.nodeName.toLowerCase() === 'a'){
                     target.style.color = "yellow";
-                }
             });
 
             a.addEventListener('mouseout', function(e){
                 var target = e.target;
-                if (target.nodeName.toLowerCase() === 'a'){
                     target.style.color = "white";
-                }
             });
 
             //styling
