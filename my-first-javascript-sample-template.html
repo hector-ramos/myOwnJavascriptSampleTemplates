@@ -27,6 +27,17 @@
 
         document.title = 'My First Javascript Site';
         var sectionL = document.createElement('section');
+        var form = document.createElement('form');
+        var fieldset = document.createElement('fieldset');
+        var legend = document.createElement('legend');
+        legend.textContent = 'My Form';
+        var ol = document.createElement('ol');
+        form.action = '';
+        sectionL.appendChild(form);
+        form.appendChild(fieldset);
+        fieldset.appendChild(legend);
+        fieldset.appendChild(ol);
+
         var sectionR = document.createElement('section');
         var iframe = document.createElement('iframe');
         sectionR.appendChild(iframe);
@@ -49,6 +60,78 @@
         var ulNav = document.createElement('ul');
         ulNav.className = 'navigation';
         nav.appendChild(ulNav);
+
+        // var formLabel = ['FirstName:', 'MiddleName:', 'LastName:', 'Email:', 'Comments:'];
+        var formElements = [
+            {
+                label: 'First Name:',
+                type:  'text',
+                value: ''
+            }, {
+                label: 'Last Name:',
+                type:  'text',
+                value: ''
+            }, {
+                label: 'Email Add:',
+                type:  'email',
+                value: ''
+            }, {
+                label: 'Address:',
+                type:  'textarea',
+                value: 'Laguna'
+            }, {
+                label: '',
+                type:  'submit',
+                value: 'Submit'
+            }
+            
+        ];
+
+
+        for (var i = 0; i < formElements.length; i++ ){
+            var li = document.createElement('li');
+            li.style.marginBottom = '5px'
+            var label = document.createElement('label');
+            label.textContent =formElements[i].label;
+            li.appendChild(label);
+
+            if(formElements[i].type === 'textarea'){
+                var textarea = document.createElement('textarea');
+                li.appendChild(textarea);
+                textarea.value = formElements[i].value;
+                li.style.marginTop = ''
+            } else {
+                var input = document.createElement('input');
+                input.type = formElements[i].type;
+                input.value = formElements[i].value
+                li.appendChild(input);
+            }
+            
+            ol.appendChild(li);
+        }
+
+        // for (var i = 0; i < formElements.length; i++ ){
+        //     var li = document.createElement('li');
+        //     var label = document.createElement('label');
+        //     var elem = null;
+
+        //     if(formElements[i].type === 'textarea'){
+        //         elem = document.createElement('textarea');
+        //     } else {
+        //         elem = document.createElement('input');
+        //         elem.type = formElements[i].type;
+        //     }
+
+        //     label.textContent =formElements[i].label;
+        //     elem.value = formElements[i].value;
+
+        //     li.appendChild(label);
+        //     li.appendChild(elem);
+            
+        //     ol.appendChild(li);
+        // }
+
+        // console.log(formElements.type);
 
         //styling for header tag
         header.style.width = '100%';
@@ -82,25 +165,37 @@
          //styling for section tag
         sectionL.style.borderRadius = '10px';
         sectionL.style.display = 'inline-block';
-        sectionL.style.width = '29.4%';
+        sectionL.style.width = '29%';
         sectionL.style.height = '400px';
         sectionL.style.backgroundColor = '#4ca6cf';
         sectionL.style.marginRight = '5px';
         sectionL.style.marginTop = '5px';
 
         sectionR.style.borderRadius = '10px';
+        sectionR.style.position = 'relative';
         sectionR.style.marginTop = '5px';
         sectionR.style.display = 'inline-block';
         sectionR.style.width = '70%';
         sectionR.style.height = '400px';
-        sectionR.style.backgroundColor = 'transparent';
+        sectionR.style.backgroundColor = '#fff';
 
 
         //styling for iframe
-        iframe.style.position = 'absolute';
-        iframe.style.top = '21%';
-        iframe.style.left = '41.3%';
 
+        iframe.style.position = 'absolute';
+        iframe.style.top = '10%';
+        iframe.style.left = '5.5%';
+
+        //styling for form
+        form.style.position = 'relative';
+        form.style.top = '2%';
+        fieldset.style.position = 'absolute';
+        fieldset.style.borderRadius = '10px';
+        fieldset.style.border = '2px #F3CA52 solid';
+        fieldset.style.left = '1.9%';
+        
+        ol.style.listStyleType = 'none';
+        ol.style.marginLeft = '-40px';
 
 
 
