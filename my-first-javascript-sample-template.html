@@ -299,6 +299,20 @@
                 {
                     source: 'images/rwd.png'
                 }
+            ],
+            games:[
+                {
+                    source: 'images/dirt-2-logo.png'
+                },
+                {
+                    source: 'images/dirt-3-logo.png'
+                },
+                {
+                    source: 'images/dirt-showdown-logo.png'
+                },
+                {
+                    source: 'images/sc2-logo.png'
+                }
             ]
         };
 
@@ -308,6 +322,18 @@
             var img = document.createElement('img');
             img.className = 'footer-images';
             img.src = imageList.images[i].source;
+            li.appendChild(img);
+            ulFoot.appendChild(li);
+        }
+
+        for (var i = 0; i < imageList.games.length; i++){
+            var li = document.createElement('li');
+            li.style.display = 'inline-block';
+            var img = document.createElement('img');
+            img.style.width = "170px";
+            img.style.height = "50px";
+            img.className = 'footer-games';
+            img.src = imageList.games[i].source;
             li.appendChild(img);
             ulFoot.appendChild(li);
         }
